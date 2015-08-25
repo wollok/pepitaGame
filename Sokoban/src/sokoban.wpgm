@@ -1,0 +1,126 @@
+
+program abc {
+
+	var cajas = #[new Position(2, 3), new Position(1, 1)].map[ p |
+	object {
+		var posicion = p
+		var imagen = "caja.png"
+
+		method movete(direccion) {
+			direccion.move(posicion)
+		}
+		
+		method teAplasta(caja) {
+			sokoban.retrocedeCon(caja)
+		}
+		
+		method getImagen() = imagen
+		method getPosicion() = posicion
+		method setImagen(_imagen) {
+			imagen = _imagen
+		}
+	}
+	]
+
+	var paredes = #[
+		new Position(0, 0), 
+		new Position(0, 1), 
+		new Position(0, 2), 
+		new Position(0, 3), 
+		new Position(0, 4), 
+		new Position(0, 5), 
+		new Position(1, 0), 
+		new Position(1, 5), 
+		new Position(2, 0), 
+		new Position(2, 5), 
+		new Position(3, 0), 
+		new Position(3, 5), 
+		new Position(4, 0), 
+		new Position(4, 5), 
+		new Position(5, 0), 
+		new Position(5, 1), 
+		new Position(5, 2), 
+		new Position(5, 3), 
+		new Position(5, 4), 
+		new Position(5, 5)
+	].map[ p |
+	object {
+		method movete(direccion) {
+//			throw new GameException("No puedes mover las paredes!")
+			sokoban.retrocede()
+		}
+		
+		method teAplasta(caja) {
+			sokoban.retrocedeCon(caja)
+		}
+		
+		method getImagen() = "muro.png"
+		method getPosicion() = p
+	}
+	]
+	
+	var llegada =
+	object {
+		method movete(direccion) {
+//			No pasa naranja
+		}
+		
+		method teAplasta(caja) {
+			caja.setImagen("flying_bird.png")
+		}
+		
+		method getImagen() = "almacenaje.png"
+		method getPosicion() = new Position(4, 4)
+	}
+	
+	var izquierda = object { method move(position) { position.moveLeft(1) } method opuesto() = derecha }
+	var derecha = object { method move(position) { position.moveRight(1) } method opuesto() = izquierda }
+	var abajo = object { method move(position) { position.moveDown(1) } method opuesto() = arriba }
+	var arriba = object { method move(position) { position.moveUp(1) } method opuesto() = abajo }
+	
+	val sokoban =
+	object {
+		var posicion = new Position(3, 3)
+		var direccion = abajo
+
+		method empuja(unElemento) {
+//			try
+				unElemento.movete(direccion)
+//			catch e : GameException
+//				console.println(e)
+		}
+		
+		method retrocede() {
+			direccion.opuesto().move(posicion)
+		}
+		
+		method retrocedeCon(caja) {
+			this.retrocede()
+			caja.movete(direccion.opuesto())
+		}
+
+		method setDireccion(unaDireccion) {
+			direccion = unaDireccion
+		}
+		
+		method getImagen() = "jugador.png"
+		method getPosicion() = posicion
+	}
+	
+	wgame.addVisual(llegada)
+	paredes.forEach[ pared | wgame.addVisual(pared) ]
+	cajas.forEach[ caja | wgame.addVisual(caja) ]
+	wgame.addVisualCharacter(sokoban)
+	
+	wgame.whenKeyPressedDo(19, [ | sokoban.setDireccion(arriba) ])
+	wgame.whenKeyPressedDo(20, [ | sokoban.setDireccion(abajo) ])
+	wgame.whenKeyPressedDo(21, [ | sokoban.setDireccion(izquierda) ])
+	wgame.whenKeyPressedDo(22, [ | sokoban.setDireccion(derecha) ])
+	
+	wgame.whenKeyPressedDo(62, [ | console.println(sokoban) ])
+	
+	wgame.whenCollideDo(sokoban, [ e | sokoban.empuja(e) ])
+	cajas.forEach[ caja | wgame.whenCollideDo(caja, [ e | e.teAplasta(caja) ]) ]
+	
+	wgame.start()
+}
