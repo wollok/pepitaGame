@@ -1,0 +1,120 @@
+
+program farmville {
+	
+	val granjero =
+	object {
+		var oro = 0
+		var cultivos = #[]
+		var posicion = new Position(3, 3)
+		
+		method planta(cultivo) {
+			cultivo.setPosicion(posicion.clone())
+			cultivo.setEdad(ninio)
+			cultivos.add(cultivo)
+		}
+		
+		method rega() {
+			wgame.getObjectsIn(posicion.getX(), posicion.getY())
+				.filter[ obj | !(this == obj) ] // TODO Que paja
+				.forEach[ cultivo | cultivo.crece() ]
+		}
+		
+		method cosechaTodo() {
+			cultivos.forEach[ c | c.cosechate() ]
+			cultivos = #[]
+		}
+		
+		method sumaOro(cantidad) {
+			oro += cantidad
+		}
+
+		method getImagen() = "jugador.png"
+		method getPosicion() = posicion
+	}
+	
+	
+	val ninio = object {
+
+		method crece(cultivo) {
+			cultivo.setEdad(adulto)
+		} 
+	
+		method oro(_) = 0
+		
+		method getImagen(_) = "almacenaje.png"
+	}
+	
+	val adulto = object {
+		
+		method crece(cultivo) {
+			cultivo.setEdad(muerto)
+		} 
+		
+		method oro(cultivo) = cultivo.oroBase()
+		
+		method getImagen(cultivo) = cultivo.imagenCultivo()
+	}
+	
+	val muerto = object {
+		
+		method crece(cultivo) { "No hace nada" } 
+		
+		method oro(cultivo) = 0
+		
+		method getImagen(cultivo) = "flying_bird.png"
+	}
+	
+	var maiz = object {
+		var posicion = new Position(0, 0)
+		var edad = ninio
+		
+		method crece() {
+			edad.crece(this)
+		}
+		
+		method cosechate() {
+			granjero.sumaOro(edad.oro(this))
+			edad = muerto
+		}
+		
+		method getImagen() = edad.getImagen(this)
+		method imagenCultivo() = "caja.png"
+		method oroBase() = 150
+		method setEdad(_edad) { edad = _edad }
+		method getPosicion() = posicion
+		method setPosicion(_posicion) { posicion = _posicion }
+	}
+	
+	val trigo = object {
+		var posicion = new Position(0, 0)
+		var edad = ninio
+		
+		method crece() {
+			edad.crece(this)
+		}
+		
+		method cosechate() {
+			granjero.sumaOro(edad.oro(this))
+			edad = muerto
+		}
+		
+		method getImagen() = edad.getImagen(this)
+		method imagenCultivo() = "muro.png"
+		method oroBase() = 100
+		method setEdad(_edad) { edad = _edad }
+		method getPosicion() = posicion
+		method setPosicion(_posicion) { posicion = _posicion }
+	}
+	
+	wgame.addVisual(trigo)
+	wgame.addVisual(maiz)
+	wgame.addVisualCharacter(granjero)
+	wgame.addVisualWithReference(granjero, "oro")
+	
+	wgame.whenKeyPressedDo(41, [ | granjero.planta(maiz) ])
+	wgame.whenKeyPressedDo(48, [ | granjero.planta(trigo) ])
+	wgame.whenKeyPressedDo(46, [ | granjero.rega() ])
+	wgame.whenKeyPressedDo(31, [ | granjero.cosechaTodo() ])
+	
+	wgame.start()
+}

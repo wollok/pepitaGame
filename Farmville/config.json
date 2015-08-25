@@ -1,0 +1,20 @@
+{
+gameboardTitle: sokoban
+gameboardHeight: 6
+gameboardWidth: 6
+imageCharacter: jugador.png
+imageGround: suelo.png
+arrowListener: true
+components: [
+	{
+		image: pared.png
+		solid: true
+		mayIMove: false
+	}
+	{
+		image: caja.png
+		solid: true
+		mayIMove: true
+	}
+]
+}
