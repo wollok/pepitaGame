@@ -1,0 +1,80 @@
+import example
+
+program abc {
+
+	val buenosAires =
+	object {
+		val nombre = "Buenos Aires"
+		val km = 0
+
+		method distancia(ciudad) {
+			return (km - ciudad.km()).abs() 
+		}
+		
+		method km() = km
+		
+		method getImagen() {
+			return "caja.png"
+		}
+		method getPosicion() {
+			return new Position(1, 1)
+		}
+	}
+	
+	val villaGesell =
+	object {
+		val nombre = "Villa Gesell"
+		val km = 100
+
+		method distancia(ciudad) {
+			return (km - ciudad.km()).abs() 
+		}
+		
+		method km() = km
+
+		method getImagen() {
+			return "caja.png"
+		}
+		method getPosicion() {
+			return new Position(2, 4)
+		}
+	}
+
+	val manzana =
+	object {
+		method energia() = 100
+	}
+
+	val pepita =
+	object {
+		var energia = 100
+		var ciudad = buenosAires
+
+		method come(comida) {
+			energia = energia + comida.energia()
+		}
+		
+		method volaHacia(_ciudad) {
+			if (!(ciudad == _ciudad))
+				energia = energia - (15 + 5 * ciudad.distancia(_ciudad))
+				ciudad = _ciudad
+		}
+		
+		method getImagen() {
+			return "flying_bird.png"
+		}
+		method getPosicion() {
+			return ciudad.getPosicion()
+		}
+	}
+	
+	wgame.addVisualWithReference(buenosAires, "nombre") 
+	wgame.addVisualWithReference(villaGesell, "nombre")
+	wgame.addVisualWithReference(pepita, "energia")
+	
+	wgame.whenKeyPressedDo(41, [ | pepita.come(manzana) ])
+	wgame.whenKeyPressedDo(50, [ | pepita.volaHacia(villaGesell) ])
+	wgame.whenKeyPressedDo(30, [ | pepita.volaHacia(buenosAires) ])
+	
+	wgame.start()
+}
