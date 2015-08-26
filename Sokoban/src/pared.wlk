@@ -1,4 +1,3 @@
-import sokoban.*
 
 class Pared {
 	val posicion
@@ -8,13 +7,10 @@ class Pared {
 	}
 
 	method movete(direccion) {
-//			throw new GameException("No puedes mover las paredes!")
-		sokoban.retrocede()
+		throw new GameException("No puedes mover las paredes.")
 	}
 	
-	method teAplasta(caja) {
-		sokoban.retrocedeCon(caja)
-	}
+	method puedePisarte(_) = false
 	
 	method getImagen() = "muro.png"
 	method getPosicion() = posicion

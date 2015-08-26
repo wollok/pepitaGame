@@ -5,11 +5,11 @@ import llegada.*
 
 program SokobanGame {
 
+//PAREDES
 	val ancho = wgame.getWidth() - 1
 	val largo = wgame.getHeight() - 1
 
 	var bordes = #[]
-
 	(0 .. ancho).forEach[ n | bordes.add(new Position(n, 0)) ] // bordeAbajo
 	(0 .. ancho).forEach[ n | bordes.add(new Position(n, largo)) ] // bordeArriba 
 	(0 .. largo).forEach[ n | bordes.add(new Position(0, n)) ] // bordeIzq 
@@ -17,20 +17,27 @@ program SokobanGame {
 
 	var paredes = bordes.map[ p | new Pared(p) ]
 
-	var cajas = #[new Position(2, 3), new Position(1, 1)].map[ p | new Caja(p) ]
+
+//CAJAS
+	var cajas = #[new Position(2, 3), new Position(2, 2)].map[ p | new Caja(p) ]
 	
+	
+//VISUALES
 	wgame.addVisual(llegada)
 	paredes.forEach[ pared | wgame.addVisual(pared) ]
 	cajas.forEach[ caja | wgame.addVisual(caja) ]
 	wgame.addVisual(sokoban)
 	
+	
+//TECLADO
 	wgame.whenKeyPressedDo(19, [ sokoban.irArriba() ])
 	wgame.whenKeyPressedDo(20, [ sokoban.irAbajo() ])
 	wgame.whenKeyPressedDo(21, [ sokoban.irIzquierda() ])
 	wgame.whenKeyPressedDo(22, [ sokoban.irDerecha() ])
 	
+	
+//COLISIÓNES
 	wgame.whenCollideDo(sokoban, [ e | sokoban.empuja(e) ])
-	cajas.forEach[ caja | wgame.whenCollideDo(caja, [ e | e.teAplasta(caja) ]) ]
 	
 	wgame.start()
 }

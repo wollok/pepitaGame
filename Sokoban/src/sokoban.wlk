@@ -5,10 +5,12 @@ object sokoban {
 	var direccion = arriba
 
 	method empuja(unElemento) {
-//			try
+		try
 			unElemento.movete(direccion)
-//			catch e : GameException
-//				console.println(e)
+		catch e : GameException {
+			console.println(e.getMessage())
+			this.retrocede()
+		}
 	}
 	
 	method retrocede() {

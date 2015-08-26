@@ -1,20 +1,30 @@
 
-object izquierda { 
-	method move(position) { position.moveLeft(1) } 
+class Direccion {
+	method posicionDeAlLado(posicion) {
+		val nuevaPos = posicion.clone()
+		this.move(nuevaPos)
+		return nuevaPos
+	}
+	
+	method move(_) { "Método abstracto" }
+}
+
+object izquierda extends Direccion { 
+	override method move(position) { position.moveLeft(1) } 
 	method opuesto() = derecha
 }
 
-object derecha { 
-	method move(position) { position.moveRight(1) } 
+object derecha extends Direccion { 
+	override method move(position) { position.moveRight(1) } 
 	method opuesto() = izquierda
 }
 
-object abajo { 
-	method move(position) { position.moveDown(1) } 
+object abajo extends Direccion { 
+	override method move(position) { position.moveDown(1) } 
 	method opuesto() = arriba
 }
 
-object arriba { 
-	method move(position) { position.moveUp(1) } 
+object arriba extends Direccion { 
+	override method move(position) { position.moveUp(1) } 
 	method opuesto() = abajo
 }

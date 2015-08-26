@@ -4,9 +4,7 @@ object llegada {
 //			No pasa naranja
 	}
 	
-	method teAplasta(caja) {
-		caja.setImagen("flying_bird.png")
-	}
+	method puedePisarte(_) = true
 	
 	method getImagen() = "almacenaje.png"
 	method getPosicion() = new Position(4, 4)
