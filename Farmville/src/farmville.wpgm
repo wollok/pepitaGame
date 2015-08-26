@@ -24,9 +24,7 @@ program farmville {
 			cultivos = #[]
 		}
 		
-		method sumaOro(cantidad) {
-			oro += cantidad
-		}
+		method sumaOro(cantidad) { oro += cantidad }
 
 		method getImagen() = "jugador.png"
 		method getPosicion() = posicion

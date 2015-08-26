@@ -1,7 +1,7 @@
 {
 gameboardTitle: sokoban
-gameboardHeight: 6
-gameboardWidth: 6
+gameboardHeight: 10
+gameboardWidth: 7
 imageCharacter: jugador.png
 imageGround: suelo.png
 arrowListener: true
