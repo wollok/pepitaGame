@@ -1,7 +1,7 @@
 import direcciones.*
 
 object sokoban {
-	var posicion = new Position(3, 3)
+	var posicion = new Position(0, 0)
 	var direccion = arriba
 
 	method empuja(unElemento) {
@@ -52,4 +52,7 @@ object sokoban {
 	
 	method getImagen() = "jugador.png"
 	method getPosicion() = posicion
+	method setPosicion(_posicion) {
+		posicion = _posicion
+	} 
 }

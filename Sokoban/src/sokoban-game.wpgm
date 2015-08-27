@@ -1,43 +1,7 @@
-import caja.*
-import pared.*
-import sokoban.*
-import llegada.*
+import niveles.*
 
 program SokobanGame {
-
-//PAREDES
-	val ancho = wgame.getWidth() - 1
-	val largo = wgame.getHeight() - 1
-
-	var bordes = #[]
-	(0 .. ancho).forEach[ n | bordes.add(new Position(n, 0)) ] // bordeAbajo
-	(0 .. ancho).forEach[ n | bordes.add(new Position(n, largo)) ] // bordeArriba 
-	(0 .. largo).forEach[ n | bordes.add(new Position(0, n)) ] // bordeIzq 
-	(0 .. largo).forEach[ n | bordes.add(new Position(ancho, n)) ] // bordeDer
-
-	var paredes = bordes.map[ p | new Pared(p) ]
-
-
-//CAJAS
-	var cajas = #[new Position(2, 3), new Position(2, 2)].map[ p | new Caja(p) ]
-	
-	
-//VISUALES
-	wgame.addVisual(llegada)
-	paredes.forEach[ pared | wgame.addVisual(pared) ]
-	cajas.forEach[ caja | wgame.addVisual(caja) ]
-	wgame.addVisual(sokoban)
-	
-	
-//TECLADO
-	wgame.whenKeyPressedDo(19, [ sokoban.irArriba() ])
-	wgame.whenKeyPressedDo(20, [ sokoban.irAbajo() ])
-	wgame.whenKeyPressedDo(21, [ sokoban.irIzquierda() ])
-	wgame.whenKeyPressedDo(22, [ sokoban.irDerecha() ])
-	
-	
-//COLISIÓNES
-	wgame.whenCollideDo(sokoban, [ e | sokoban.empuja(e) ])
+	nivel1.cargar()
 	
 	wgame.start()
 }

@@ -1,0 +1,16 @@
+import granjero.*
+import cultivos.*
+
+program FarmvilleGame {
+//	VISUALES
+	wgame.addVisualCharacter(granjero)
+	wgame.addVisualWithReference(granjero, "oro")
+	
+//	TECLADO
+	wgame.whenKeyPressedDo(41, [ | granjero.planta(new Maiz()) ])
+	wgame.whenKeyPressedDo(48, [ | granjero.planta(new Trigo()) ])
+	wgame.whenKeyPressedDo(46, [ | granjero.rega() ])
+	wgame.whenKeyPressedDo(31, [ | granjero.cosechaTodo() ])
+	
+	wgame.start()
+}

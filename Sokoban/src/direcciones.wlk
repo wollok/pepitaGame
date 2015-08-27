@@ -6,7 +6,7 @@ class Direccion {
 		return nuevaPos
 	}
 	
-	method move(_) { "Método abstracto" }
+	method move(_) { /* Método abstracto */ }
 }
 
 object izquierda extends Direccion { 

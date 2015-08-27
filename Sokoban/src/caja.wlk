@@ -1,10 +1,11 @@
 
 class Caja {
 	var posicion
-	var imagen = "caja.png"
-
-	new(_posicion) {
+	var llegadas
+	
+	new(_posicion, _llegadas) {
 		posicion = _posicion
+		llegadas = _llegadas
 	}
 
 	method movete(direccion) {
@@ -23,9 +24,18 @@ class Caja {
 	
 	method puedePisarte(_) = false
 
-	method getImagen() = imagen
-	method getPosicion() = posicion
-	method setImagen(_imagen) {
-		imagen = _imagen
+	method getImagen() {
+		if (this.estaBienPosicionada())
+			return "flying_bird.png"
+		
+		return "caja.png"
 	}
+	
+	method estaBienPosicionada() {
+		return llegadas
+			.map[ llegada | llegada.getPosicion()]
+			.contains(this.getPosicion())
+	}
+	
+	method getPosicion() = posicion
 }

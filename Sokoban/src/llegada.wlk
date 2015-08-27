@@ -1,11 +1,15 @@
 
-object llegada {
-	method movete(direccion) {
-//			No pasa naranja
+class Llegada {
+	val posicion
+	
+	new (_posicion) {
+		posicion = _posicion
 	}
+	
+	method movete(direccion) { /* No pasa naranja */ }
 	
 	method puedePisarte(_) = true
 	
 	method getImagen() = "almacenaje.png"
-	method getPosicion() = new Position(4, 4)
+	method getPosicion() = posicion
 }

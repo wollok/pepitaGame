@@ -1,0 +1,19 @@
+import pepita.*
+import ciudades.*
+import comidas.*
+
+program PepitaGame {
+//	VISUALES
+	wgame.addVisual(buenosAires) 
+	wgame.addVisual(villaGesell)
+	wgame.addVisualWithReference(pepita, "energia")
+	
+//	TECLADO
+	wgame.whenKeyPressedDo(29, [ | pepita.come(alpiste) ])
+	wgame.whenKeyPressedDo(41, [ | pepita.come(manzana) ])
+	
+	wgame.whenKeyPressedDo(50, [ | pepita.volaHacia(villaGesell) ])
+	wgame.whenKeyPressedDo(30, [ | pepita.volaHacia(buenosAires) ])
+	
+	wgame.start()
+}

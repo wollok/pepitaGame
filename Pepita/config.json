@@ -1,20 +1,7 @@
 {
-gameboardTitle: sokoban
-gameboardHeight: 6
-gameboardWidth: 6
+gameboardTitle: Pepita
+gameboardHeight: 3
+gameboardWidth: 11
 imageCharacter: jugador.png
 imageGround: suelo.png
-arrowListener: true
-components: [
-	{
-		image: pared.png
-		solid: true
-		mayIMove: false
-	}
-	{
-		image: caja.png
-		solid: true
-		mayIMove: true
-	}
-]
 }
