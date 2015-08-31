@@ -9,11 +9,11 @@ program PepitaGame {
 	wgame.addVisualWithReference(pepita, "energia")
 	
 //	TECLADO
-	wgame.whenKeyPressedDo(29, [ | pepita.come(alpiste) ])
-	wgame.whenKeyPressedDo(41, [ | pepita.come(manzana) ])
+	wgame.whenKeyPressedDo(wGameKeys.getKeyCode("A"), [ | pepita.come(alpiste) ])
+	wgame.whenKeyPressedDo(wGameKeys.getKeyCode("m"), [ | pepita.come(manzana) ])
 	
-	wgame.whenKeyPressedDo(50, [ | pepita.volaHacia(villaGesell) ])
-	wgame.whenKeyPressedDo(30, [ | pepita.volaHacia(buenosAires) ])
+	wgame.whenKeyPressedDo(wGameKeys.getKeyCode("v"), [ | pepita.volaHacia(villaGesell) ])
+	wgame.whenKeyPressedDo(wGameKeys.getKeyCode("b"), [ | pepita.volaHacia(buenosAires) ])
 	
 	wgame.start()
 }
