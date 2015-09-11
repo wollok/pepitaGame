@@ -1,0 +1,4 @@
+
+program DummyGame {
+	wgame.start()
+}
