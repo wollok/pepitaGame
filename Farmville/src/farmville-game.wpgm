@@ -7,10 +7,10 @@ program FarmvilleGame {
 	wgame.addVisualWithReference(granjero, "oro")
 	
 //	TECLADO
-	wgame.whenKeyPressedDo(wGameKeys.getKeyCode("m"), [ | granjero.planta(new Maiz()) ])
-	wgame.whenKeyPressedDo(wGameKeys.getKeyCode("T"), [ | granjero.planta(new Trigo()) ])
-	wgame.whenKeyPressedDo(wGameKeys.getKeyCode("R"), [ | granjero.rega() ])
-	wgame.whenKeyPressedDo(wGameKeys.getKeyCode("C"), [ | granjero.cosechaTodo() ])
+	keys.onPress("M").do([ granjero.planta(new Maiz()) ])
+	keys.onPress("T").do([ granjero.planta(new Trigo()) ])
+	keys.onPress("R").do([ granjero.rega() ])
+	keys.onPress("C").do([ granjero.cosechaTodo() ])
 	
 	wgame.start()
 }
