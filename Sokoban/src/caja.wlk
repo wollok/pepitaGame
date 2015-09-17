@@ -3,10 +3,10 @@ class Caja {
 	var posicion
 	var llegadas
 	
-	new(_posicion, _llegadas) {
-		posicion = _posicion
+	new(_llegadas) {
 		llegadas = _llegadas
 	}
+	
 
 	method movete(direccion) {
 		this.validarLugarLibre(direccion) 
@@ -38,4 +38,5 @@ class Caja {
 	}
 	
 	method getPosicion() = posicion
+	method setPosicion(pos) {posicion = pos}
 }
