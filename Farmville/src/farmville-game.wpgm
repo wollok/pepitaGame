@@ -3,14 +3,13 @@ import cultivos.*
 
 program FarmvilleGame {
 //	VISUALES
-	wgame.addVisualCharacter(granjero)
-	wgame.addVisualWithReference(granjero, "oro")
+ 	new Position(3, 3).drawCharacterWithReferences(granjero, #["oro", "cultivos"]) 	
 	
 //	TECLADO
-	wgame.whenKeyPressedDo(wGameKeys.getKeyCode("m"), [ | granjero.planta(new Maiz()) ])
-	wgame.whenKeyPressedDo(wGameKeys.getKeyCode("T"), [ | granjero.planta(new Trigo()) ])
-	wgame.whenKeyPressedDo(wGameKeys.getKeyCode("R"), [ | granjero.rega() ])
-	wgame.whenKeyPressedDo(wGameKeys.getKeyCode("C"), [ | granjero.cosechaTodo() ])
+	wgame.whenKeyPressedDo(41, [ | granjero.planta(new Maiz()) ])
+	wgame.whenKeyPressedDo(48, [ | granjero.planta(new Trigo()) ])
+	wgame.whenKeyPressedDo(46, [ | granjero.rega() ])
+	wgame.whenKeyPressedDo(31, [ | granjero.cosechaTodo() ])
 	
 	wgame.start()
 }
