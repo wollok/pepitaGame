@@ -4,9 +4,9 @@ import comidas.*
 
 program PepitaGame {
 //	VISUALES
-	wgame.addVisual(buenosAires) 
-	wgame.addVisual(villaGesell)
-	wgame.addVisualWithReference(pepita, "energia")
+	new Position(1, 1).drawElement(buenosAires)
+	new Position(8, 3).drawElement(villaGesell)
+	wgame.addVisualWithReference(pepita, #["energia"])
 	
 //	TECLADO
 	keys.onPress("A").do([ pepita.come(alpiste) ])
