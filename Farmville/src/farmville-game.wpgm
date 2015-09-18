@@ -18,7 +18,7 @@ program FarmvilleGame {
 //	TECLADO
 	keys.onPress("M").do [ granjero.plantaMaiz() ]
 	keys.onPress("T").do [ granjero.plantaTrigo() ]
-	keys.onPress("O").do [ granjero.plantaTomate() ]
+	keys.onPress("O").do [ granjero.plantaTomaco() ]
 	keys.onPress("R").do [ granjero.rega() ]
 	keys.onPress("C").do [ granjero.cosechaTodo() ]
 	
