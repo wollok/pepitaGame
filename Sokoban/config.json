@@ -1,6 +1,6 @@
 {
 gameboardTitle: Sokoban
 gameboardHeight: 7
-gameboardWidth: 10
+gameboardWidth: 9
 imageGround: suelo.png
 }

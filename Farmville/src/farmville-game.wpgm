@@ -6,10 +6,11 @@ program FarmvilleGame {
  	new Position(3, 3).drawCharacterWithReferences(granjero, #["oro", "cultivos"]) 	
 	
 //	TECLADO
-	wgame.whenKeyPressedDo(41, [ | granjero.planta(new Maiz()) ])
-	wgame.whenKeyPressedDo(48, [ | granjero.planta(new Trigo()) ])
-	wgame.whenKeyPressedDo(46, [ | granjero.rega() ])
-	wgame.whenKeyPressedDo(31, [ | granjero.cosechaTodo() ])
+
+	keys.onPress("M").do([ granjero.planta(new Maiz()) ])
+	keys.onPress("T").do([ granjero.planta(new Trigo()) ])
+	keys.onPress("R").do([ granjero.rega() ])
+	keys.onPress("C").do([ granjero.cosechaTodo() ])
 	
 	wgame.start()
 }
