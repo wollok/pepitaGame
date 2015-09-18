@@ -53,13 +53,13 @@ object nivel1 {
 		new Position(4, 3).drawElement(sokoban)
 
 //	TECLADO
-		wgame.whenKeyPressedDo(19, [ sokoban.irArriba() ])
-		wgame.whenKeyPressedDo(20, [ sokoban.irAbajo() ])
-		wgame.whenKeyPressedDo(21, [ sokoban.irIzquierda() ])
-		wgame.whenKeyPressedDo(22, [ sokoban.irDerecha() ])
+		keys.onPress("up").do([ sokoban.irArriba() ])
+		keys.onPress("down").do([ sokoban.irAbajo() ])
+		keys.onPress("left").do([ sokoban.irIzquierda() ])
+		keys.onPress("right").do([ sokoban.irDerecha() ])
 
-		wgame.whenKeyPressedDo(46, [ this.restart() ])
-		wgame.whenKeyPressedDo(-1, [ this.comprobarSiGano(cajas) ])
+		keys.onPress("R").do([ this.restart() ])
+		keys.onPress("ANY_KEY").do([ this.comprobarSiGano(cajas) ])
 		
 		
 //	COLISIÓNES
