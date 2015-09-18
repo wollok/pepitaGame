@@ -1,8 +1,19 @@
+import arbustos.*
 import granjero.*
 
 program FarmvilleGame {
 //	VISUALES
- 	new Position(3, 3).drawCharacterWithReferences(granjero, #["oro", "cultivos"]) 	
+ 	new Position(3, 3).drawCharacterWithReferences(granjero, #["oro", "cultivos"]) 		
+{	
+	//ARBUSTOS
+	val ancho = wgame.getWidth() - 1
+	val largo = wgame.getHeight() - 1
+
+	(1 .. ancho-1).forEach [ n | new ArbustoAbajo(new Position(n, 0)) ] // bordeAbajo
+	(1 .. ancho-1).forEach [ n | new ArbustoArriba(new Position(n, largo)) ] // bordeArriba 
+	(0 .. largo).forEach [ n | new ArbustoIzquierda(new Position(0, n)) ] // bordeIzq 
+	(0 .. largo).forEach [ n | new ArbustoDerecha(new Position(ancho, n)) ] // bordeDer
+}
 	
 //	TECLADO
 	keys.onPress("M").do [ granjero.plantaMaiz() ]

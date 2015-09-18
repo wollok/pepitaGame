@@ -1,7 +1,7 @@
 {
 gameboardTitle: FarmVille
-gameboardHeight: 8
-gameboardWidth: 8
+gameboardHeight: 10
+gameboardWidth: 10
 imageCharacter: player.png
 imageGround: ground.png
 }

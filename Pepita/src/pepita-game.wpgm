@@ -15,5 +15,6 @@ program PepitaGame {
 	keys.onPress("v").do([ pepita.volaHacia(villaGesell) ])
 	keys.onPress("b").do([ pepita.volaHacia(buenosAires) ])
 	
+//	START
 	wgame.start()
 }
