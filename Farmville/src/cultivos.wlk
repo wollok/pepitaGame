@@ -19,11 +19,18 @@ class Cultivo {
 
 
 class Maiz extends Cultivo {
-	method imagenCultivo() = "caja.png"
+	method imagenCultivoAdulto() = "corn_adult.png"
+	method imagenCultivoNinio() = "corn_baby.png"
 	method oroBase() = 150
 }
 
 class Trigo extends Cultivo {
-	method imagenCultivo() = "muro.png"
+	method imagenCultivoAdulto() = "wheat_adult.png"
+	method imagenCultivoNinio() = "wheat_baby.png"
 	method oroBase() = 100
+}
+class Tomaco extends Cultivo {
+	method imagenCultivoAdulto() = "tomaco_adult.png"
+	method imagenCultivoNinio() = "tomaco_baby.png"
+	method oroBase() = 1000
 }

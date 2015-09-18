@@ -4,7 +4,7 @@ object ninio {
 
 	method oroPorCosecha(_) = 0
 	
-	method getImagen(_) = "almacenaje.png"
+	method getImagen(cultivo) = cultivo.imagenCultivoNinio()
 }
 
 object adulto {
@@ -13,7 +13,7 @@ object adulto {
 	
 	method oroPorCosecha(cultivo) = cultivo.oroBase()
 	
-	method getImagen(cultivo) = cultivo.imagenCultivo()
+	method getImagen(cultivo) = cultivo.imagenCultivoAdulto()
 }
 
 object muerto {
@@ -22,5 +22,5 @@ object muerto {
 	
 	method oroPorCosecha(_) = 0
 	
-	method getImagen(_) = "flying_bird.png"
+	method getImagen(_) = "dead_plant.png"
 }

@@ -2,6 +2,6 @@
 gameboardTitle: FarmVille
 gameboardHeight: 8
 gameboardWidth: 8
-imageCharacter: jugador.png
-imageGround: suelo.png
+imageCharacter: player.png
+imageGround: ground.png
 }
