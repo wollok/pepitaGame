@@ -24,4 +24,5 @@ object granjero {
 
 	method getImagen() = "jugador.png"
 	method getPosicion() = posicion
+	method setPosicion(_posicion){posicion = _posicion}
 }

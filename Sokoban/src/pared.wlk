@@ -1,11 +1,10 @@
 
 class Pared {
-	val posicion
+	var posicion
 	
-	new (_posicion) {
-		posicion = _posicion
+	new () {
 	}
-
+	
 	method movete(direccion) {
 		throw new GameException("No puedes mover las paredes.")
 	}
@@ -14,4 +13,5 @@ class Pared {
 	
 	method getImagen() = "muro.png"
 	method getPosicion() = posicion
+	method setPosicion(pos) {posicion = pos}
 }

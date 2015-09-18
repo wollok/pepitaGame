@@ -7,9 +7,6 @@ import llegada.*
 object nivel1 {
 	
 	method cargar() {
-//	SOKOBAN
-		sokoban.setPosicion(new Position(4, 3))
-		
 		
 //	PAREDES
 		val ancho = wgame.getWidth() - 1
@@ -25,25 +22,35 @@ object nivel1 {
 		posParedes.addAll(#[new Position(1,2), new Position(2,2),new Position(6,2), new Position(7,2)])
 		posParedes.addAll(#[new Position(1,1), new Position(2,1),new Position(6,1), new Position(7,1)])
 	
-		var paredes = posParedes.map[ p | new Pared(p) ]
+		var paredes = posParedes.map[ p |{
+					val pared = new Pared()
+					p.drawElement(pared)
+					return pared
+				}
+			]
 	
 		
 //	LLEGADAS
 		var llegadas = #[new Position(4, 4), new Position(4, 3),new Position(4, 2), new Position(4, 1)]
-			.map[ p | new Llegada(p) ]
-		
-			
+			.map[ p |{
+					val llegada = new Llegada()
+					p.drawElement(llegada)
+					return llegada
+				}
+			]
+
 //	CAJAS
 		var cajas = #[new Position(2, 4), new Position(6, 4), new Position(4, 2), new Position(5, 2)]
-			.map[ p | new Caja(p, llegadas) ]
+			.map[ p |{
+					val caja = 	new Caja(llegadas)
+					p.drawElement(caja)
+					return caja
+				}
+			]
+			
+//	SOKOBAN
 
-		
-//	VISUALES
-		llegadas.forEach[ llegada | wgame.addVisual(llegada) ]
-		paredes.forEach[ pared | wgame.addVisual(pared) ]
-		cajas.forEach[ caja | wgame.addVisual(caja) ]
-		wgame.addVisual(sokoban)
-		
+		new Position(4, 3).drawElement(sokoban)
 
 //	TECLADO
 		keys.onPress("up").do([ sokoban.irArriba() ])
