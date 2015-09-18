@@ -1,12 +1,21 @@
+import cultivos.*
+
 object granjero {
 	var oro = 0
 	var cultivos = #[]
-	var posicion = new Position(3, 3)
+	var posicion
 	
+	method plantaMaiz() {
+		this.planta(new Maiz())
+	}
+
+	method plantaTrigo() {
+		this.planta(new Trigo())
+	}
+
 	method planta(cultivo) {
-		cultivo.setPosicion(posicion.clone())
+		posicion.drawElement(cultivo)
 		cultivos.add(cultivo)
-		wgame.addVisual(cultivo)
 	}
 	
 	method rega() {
@@ -24,5 +33,5 @@ object granjero {
 
 	method getImagen() = "jugador.png"
 	method getPosicion() = posicion
-	method setPosicion(_posicion){posicion = _posicion}
+	method setPosicion(_posicion) { posicion = _posicion }
 }

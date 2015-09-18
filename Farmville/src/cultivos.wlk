@@ -1,18 +1,18 @@
-import edades.*
+import etapas.*
 
 class Cultivo {
 	var posicion
-	var edad = ninio
+	var etapa = ninio
 	
-	method crece() { edad.crece(this) }
+	method crece() { etapa.crece(this) }
 	
 	method cosechate(granjero) {
-		granjero.sumaOro(edad.oro(this))
-		edad = muerto
+		granjero.sumaOro(etapa.oroPorCosecha(this))
+		etapa = muerto
 	}
 	
-	method getImagen() = edad.getImagen(this)
-	method setEdad(_edad) { edad = _edad }
+	method setEtapa(_edad) { etapa = _edad }
+	method getImagen() = etapa.getImagen(this)
 	method getPosicion() = posicion
 	method setPosicion(_posicion) { posicion = _posicion }
 }
