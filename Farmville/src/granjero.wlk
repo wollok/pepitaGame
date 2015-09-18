@@ -22,7 +22,7 @@ object granjero {
 	
 	method sumaOro(cantidad) { oro += cantidad }
 
-	method getImagen() = "jugador.png"
+	method getImagen() = "player.png"
 	method getPosicion() = posicion
 	method setPosicion(_posicion){posicion = _posicion}
 }
