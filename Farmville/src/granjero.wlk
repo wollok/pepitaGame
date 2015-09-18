@@ -23,13 +23,13 @@ object granjero {
 	}
 	
 	method rega() {
-		wgame.getObjectsIn(posicion)
-			.filter[ obj | !(this == obj) ] // TODO Que paja
-			.forEach[ cultivo | cultivo.crece() ]
+		posicion.getAllElements()
+			.filter [ obj | !(this == obj) ]
+			.forEach [ cultivo | cultivo.crece() ]
 	}
 	
 	method cosechaTodo() {
-		cultivos.forEach[ c | c.cosechate(this) ]
+		cultivos.forEach [ c | c.cosechate(this) ]
 		cultivos.clear()
 	}
 	
