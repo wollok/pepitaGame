@@ -29,8 +29,9 @@ class Trigo extends Cultivo {
 	method imagenCultivoNinio() = "wheat_baby.png"
 	method oroBase() = 100
 }
-class Tomaco extends Cultivo {
+
+class Tomate extends Cultivo {
 	method imagenCultivoAdulto() = "tomaco_adult.png"
 	method imagenCultivoNinio() = "tomaco_baby.png"
-	method oroBase() = 1000
+	method oroBase() = 50
 }

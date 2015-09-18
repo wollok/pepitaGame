@@ -11,6 +11,10 @@ object granjero {
 
 	method plantaTrigo() {
 		this.planta(new Trigo())
+	
+	}
+	method plantaTomate() {
+		this.planta(new Tomate())
 	}
 
 	method planta(cultivo) {
