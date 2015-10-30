@@ -67,8 +67,8 @@ object nivel1 {
 	}
 	
 	method restart() {
-		//wgame.clear()
-		//this.cargar()
+		wgame.clear()
+		this.cargar()
 	}
 	
 	method comprobarSiGano(cajas) {
