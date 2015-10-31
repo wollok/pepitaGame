@@ -22,6 +22,9 @@ program FarmvilleGame {
 	keys.onPress("R").do [ granjero.rega() ]
 	keys.onPress("C").do [ granjero.cosechaTodo() ]
 	
+	keys.onPress("A").characterSay [ "mi oro: " + granjero.getOro() ]
+	keys.onPress("P").characterSay [ "Mensaje de prueba!"]
+	
 //	START
 	wgame.start()
 }
