@@ -23,9 +23,13 @@ object granjero {
 	}
 	
 	method rega() {
-		posicion.getAllElements()
+		var cultivosARegar = posicion.getAllElements()
 			.filter [ obj | !(this == obj) ]
-			.forEach [ cultivo | cultivo.crece() ]
+			
+		if (cultivosARegar.isEmpty())
+			throw new Exception("Solo las plantas se pueden regar!")
+			
+		cultivosARegar.forEach [ cultivo | cultivo.crece() ]
 	}
 	
 	method cosechaTodo() {

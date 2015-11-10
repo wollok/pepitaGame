@@ -25,6 +25,11 @@ program FarmvilleGame {
 	keys.onPress("A").characterSay [ "mi oro: " + granjero.getOro() ]
 	keys.onPress("P").characterSay [ "Mensaje de prueba!"]
 	
+	var nada;
+	keys.onPress("X").do [ throw new Exception() ]
+	keys.onPress("N").do [ nada.boom() ]	
+	
+	
 //	START
 	wgame.start()
 }
