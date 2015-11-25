@@ -7,8 +7,8 @@ object sokoban {
 	method empuja(unElemento) {
 		try
 			unElemento.movete(direccion)
-		catch e : GameException {
-			console.println(e.getMessage())
+		catch e : Exception {
+			console.println(e)
 			this.retrocede()
 		}
 	}

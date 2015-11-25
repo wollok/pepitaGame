@@ -3,7 +3,7 @@ import granjero.*
 
 program FarmvilleGame {
 //	VISUALES
- 	new Position(3, 3).drawCharacterWithReferences(granjero, #["oro", "cultivos"]) 		
+ 	new Position(3, 3).drawCharacter(granjero) 		
 {	
 	//ARBUSTOS
 	val ancho = wgame.getWidth() - 1

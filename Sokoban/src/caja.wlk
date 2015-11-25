@@ -19,7 +19,7 @@ class Caja {
 			.forAll[ obj | obj.puedePisarte(this) ] 
 		
 		if (! lugarLibre) 
-			throw new GameException("Algo traba la caja.")
+			throw new Exception("Algo traba la caja.")
 	}
 	
 	method puedePisarte(_) = false

@@ -6,7 +6,7 @@ class Pared {
 	}
 	
 	method movete(direccion) {
-		throw new GameException("No puedes mover las paredes.")
+		throw new Exception("No puedes mover las paredes.")
 	}
 	
 	method puedePisarte(_) = false

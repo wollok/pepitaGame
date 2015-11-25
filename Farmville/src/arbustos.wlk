@@ -11,7 +11,7 @@ class Arbusto {
 	method setPosicion(_posicion) { posicion = _posicion }
 }
 
-class ArbustoArriba extends Arbusto {
+class ArbustoArriba inherits Arbusto {
 	new(_posicion) = super(_posicion)
 	
 	method empuja(granjero) {
@@ -19,7 +19,7 @@ class ArbustoArriba extends Arbusto {
 	}
 }
 
-class ArbustoAbajo extends Arbusto {
+class ArbustoAbajo inherits Arbusto {
 	new(_posicion) = super(_posicion)
 	
 	method empuja(granjero) {
@@ -27,7 +27,7 @@ class ArbustoAbajo extends Arbusto {
 	}
 }
 
-class ArbustoIzquierda extends Arbusto {
+class ArbustoIzquierda inherits Arbusto {
 	new(_posicion) = super(_posicion)
 	
 	method empuja(granjero) {
@@ -35,7 +35,7 @@ class ArbustoIzquierda extends Arbusto {
 	}
 }
 
-class ArbustoDerecha extends Arbusto {
+class ArbustoDerecha inherits Arbusto {
 	new(_posicion) = super(_posicion)
 	
 	method empuja(granjero) {

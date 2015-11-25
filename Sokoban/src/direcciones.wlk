@@ -9,22 +9,22 @@ class Direccion {
 	method move(_) { /* Método abstracto */ }
 }
 
-object izquierda extends Direccion { 
+object izquierda inherits Direccion { 
 	override method move(position) { position.moveLeft(1) } 
 	method opuesto() = derecha
 }
 
-object derecha extends Direccion { 
+object derecha inherits Direccion { 
 	override method move(position) { position.moveRight(1) } 
 	method opuesto() = izquierda
 }
 
-object abajo extends Direccion { 
+object abajo inherits Direccion { 
 	override method move(position) { position.moveDown(1) } 
 	method opuesto() = arriba
 }
 
-object arriba extends Direccion { 
+object arriba inherits Direccion { 
 	override method move(position) { position.moveUp(1) } 
 	method opuesto() = abajo
 }
