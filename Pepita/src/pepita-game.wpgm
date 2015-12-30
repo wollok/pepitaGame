@@ -3,6 +3,12 @@ import ciudades.*
 import comidas.*
 
 program PepitaGame {
+//	CONFIG	
+	wgame.setTitle("Pepita")
+	wgame.setHeight(4)
+	wgame.setWidth(11)
+	wgame.setGround("suelo.png")
+
 //	VISUALES
 	new Position(1, 1).drawElement(buenosAires)
 	new Position(8, 3).drawElement(villaGesell)
