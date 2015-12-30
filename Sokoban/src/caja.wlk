@@ -16,7 +16,7 @@ class Caja {
 	method validarLugarLibre(direccion) {
 		val posAlLado = direccion.posicionDeAlLado(posicion) 
 		var lugarLibre = wgame.getObjectsIn(posAlLado)
-			.forAll[ obj | obj.puedePisarte(this) ] 
+			.forAll{ obj => obj.puedePisarte(this) } 
 		
 		if (! lugarLibre) 
 			throw new Exception("Algo traba la caja.")
@@ -33,7 +33,7 @@ class Caja {
 	
 	method estaBienPosicionada() {
 		return llegadas
-			.map[ llegada | llegada.getPosicion()]
+			.map{ llegada => llegada.getPosicion() }
 			.contains(this.getPosicion())
 	}
 	

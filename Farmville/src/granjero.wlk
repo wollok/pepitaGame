@@ -2,7 +2,7 @@ import cultivos.*
 
 object granjero {
 	var oro = 0
-	var cultivos = #[]
+	var cultivos = []
 	var posicion
 	
 	method plantaMaiz() {
@@ -24,16 +24,16 @@ object granjero {
 	
 	method rega() {
 		var cultivosARegar = posicion.getAllElements()
-			.filter [ obj | !(this == obj) ]
+			.filter { obj => !(this == obj) }
 			
 		if (cultivosARegar.isEmpty())
 			throw new Exception("Solo las plantas se pueden regar!")
 			
-		cultivosARegar.forEach [ cultivo | cultivo.crece() ]
+		cultivosARegar.forEach { cultivo => cultivo.crece() }
 	}
 	
 	method cosechaTodo() {
-		cultivos.forEach [ c | c.cosechate(this) ]
+		cultivos.forEach { c => c.cosechate(this) }
 		cultivos.clear()
 	}
 	

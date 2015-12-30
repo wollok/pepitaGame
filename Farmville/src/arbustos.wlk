@@ -3,7 +3,7 @@ class Arbusto {
 	
 	new(_posicion) {
 		_posicion.drawElement(this)
-		wgame.whenCollideDo(this, [ granjero | this.empuja(granjero) ])
+		wgame.whenCollideDo(this, { granjero => this.empuja(granjero) })
 	}
 
 	method getImagen() = "fence02.png"
