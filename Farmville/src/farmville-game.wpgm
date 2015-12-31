@@ -1,3 +1,4 @@
+import wollok.game.*
 import arbustos.*
 import granjero.*
 
@@ -21,20 +22,20 @@ program FarmvilleGame {
 	(0 .. largo).forEach { n => new ArbustoDerecha(new Position(ancho, n)) } // bordeDer
 	
 //	TECLADO
-	keys.onPress("M").do { granjero.plantaMaiz() }
-	keys.onPress("T").do { granjero.plantaTrigo() }
-	keys.onPress("O").do { granjero.plantaTomaco() }
-	keys.onPress("R").do { granjero.rega() }
-	keys.onPress("C").do { granjero.cosechaTodo() }
+	M.onPressDo { granjero.plantaMaiz() }
+	T.onPressDo { granjero.plantaTrigo() }
+	O.onPressDo { granjero.plantaTomaco() }
+	R.onPressDo { granjero.rega() }
+	C.onPressDo { granjero.cosechaTodo() }
 	
-	keys.onPress("A").characterSay { "mi oro: " + granjero.getOro() }
-	keys.onPress("P").characterSay { "Mensaje de prueba!" }
+	A.onPressCharacterSay { "mi oro: " + granjero.getOro() }
+	P.onPressCharacterSay { "Mensaje de prueba!" }
 	
 	var nada;
-	keys.onPress("X").do { throw new Exception() }
-	keys.onPress("N").do { nada.boom() }
+	X.onPressDo { throw new Exception() }
+	N.onPressDo { nada.boom() }
 	
-	
+
 //	START
 	wgame.start()
 }
