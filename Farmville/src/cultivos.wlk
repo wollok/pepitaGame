@@ -4,15 +4,15 @@ class Cultivo {
 	var posicion
 	var etapa = ninio
 	
-	method crece() { etapa.crece(this) }
+	method crece() { etapa.crece(self) }
 	
 	method cosechate(granjero) {
-		granjero.sumaOro(etapa.oroPorCosecha(this))
+		granjero.sumaOro(etapa.oroPorCosecha(self))
 		etapa = muerto
 	}
 	
 	method setEtapa(_edad) { etapa = _edad }
-	method getImagen() = etapa.getImagen(this)
+	method getImagen() = etapa.getImagen(self)
 	method getPosicion() = posicion
 	method setPosicion(_posicion) { posicion = _posicion }
 }

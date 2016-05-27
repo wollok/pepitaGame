@@ -1,9 +1,9 @@
 class Arbusto {
 	var posicion
 	
-	new(_posicion) {
-		_posicion.drawElement(this)
-		wgame.whenCollideDo(this, { granjero => this.empuja(granjero) })
+	constructor(_posicion) {
+		_posicion.drawElement(self)
+		wgame.whenCollideDo(self, { granjero => self.empuja(granjero) })
 	}
 
 	method getImagen() = "fence02.png"
@@ -12,7 +12,7 @@ class Arbusto {
 }
 
 class ArbustoArriba inherits Arbusto {
-	new(_posicion) = super(_posicion)
+	constructor(_posicion) = super(_posicion)
 	
 	method empuja(granjero) {
 		granjero.getPosicion().moveDown(1)
@@ -20,7 +20,7 @@ class ArbustoArriba inherits Arbusto {
 }
 
 class ArbustoAbajo inherits Arbusto {
-	new(_posicion) = super(_posicion)
+	constructor(_posicion) = super(_posicion)
 	
 	method empuja(granjero) {
 		granjero.getPosicion().moveUp(1)
@@ -28,7 +28,7 @@ class ArbustoAbajo inherits Arbusto {
 }
 
 class ArbustoIzquierda inherits Arbusto {
-	new(_posicion) = super(_posicion)
+	constructor(_posicion) = super(_posicion)
 	
 	method empuja(granjero) {
 		granjero.getPosicion().moveRight(1)
@@ -36,7 +36,7 @@ class ArbustoIzquierda inherits Arbusto {
 }
 
 class ArbustoDerecha inherits Arbusto {
-	new(_posicion) = super(_posicion)
+	constructor(_posicion) = super(_posicion)
 	
 	method empuja(granjero) {
 		granjero.getPosicion().moveLeft(1)

@@ -3,28 +3,28 @@ import cultivos.*
 object granjero {
 	var oro = 0
 	var cultivos = []
-	var posicion
+	var posicion = new Position(3, 3)
 	
 	method plantaMaiz() {
-		this.planta(new Maiz())
+		self.planta(new Maiz())
 	}
 
 	method plantaTrigo() {
-		this.planta(new Trigo())
+		self.planta(new Trigo())
 	
 	}
 	method plantaTomaco() {
-		this.planta(new Tomaco())
+		self.planta(new Tomaco())
 	}
 
 	method planta(cultivo) {
-		posicion.drawElement(cultivo)
+		posicion.clone().drawElement(cultivo)
 		cultivos.add(cultivo)
 	}
 	
 	method rega() {
-		var cultivosARegar = posicion.getAllElements()
-			.filter { obj => !(this == obj) }
+		var cultivosARegar = posicion.allElements()
+			.filter { obj => !(self == obj) }
 			
 		if (cultivosARegar.isEmpty())
 			throw new Exception("Solo las plantas se pueden regar!")
@@ -33,7 +33,7 @@ object granjero {
 	}
 	
 	method cosechaTodo() {
-		cultivos.forEach { c => c.cosechate(this) }
+		cultivos.forEach { c => c.cosechate(self) }
 		cultivos.clear()
 	}
 	

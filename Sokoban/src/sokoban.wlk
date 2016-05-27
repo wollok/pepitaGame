@@ -1,7 +1,7 @@
 import direcciones.*
 
 object sokoban {
-	var posicion = new Position(0, 0)
+	var posicion = new Position(4, 3)
 	var direccion = arriba
 
 	method empuja(unElemento) {
@@ -9,7 +9,7 @@ object sokoban {
 			unElemento.movete(direccion)
 		catch e : Exception {
 			console.println(e)
-			this.retrocede()
+			self.retrocede()
 		}
 	}
 	
@@ -18,28 +18,28 @@ object sokoban {
 	}
 	
 	method retrocedeCon(caja) {
-		this.retrocede()
+		self.retrocede()
 		caja.movete(direccion.opuesto())
 	}
 
 	method irArriba() {
 		direccion = arriba
-		this.avanzar()
+		self.avanzar()
 	}
 
 	method irAbajo() {
 		direccion = abajo
-		this.avanzar()
+		self.avanzar()
 	}
 
 	method irIzquierda() {
 		direccion = izquierda
-		this.avanzar()
+		self.avanzar()
 	}
 
 	method irDerecha() {
 		direccion = derecha
-		this.avanzar()
+		self.avanzar()
 	}
 	
 	method avanzar() {

@@ -2,15 +2,15 @@ import caja.*
 import pared.*
 import sokoban.*
 import llegada.*
-
+import wollok.game.*
 
 object nivel1 {
 	
 	method cargar() {
 		
 //	PAREDES
-		val ancho = wgame.getWidth() - 1
-		val largo = wgame.getHeight() - 1
+		const ancho = wgame.getWidth() - 1
+		const largo = wgame.getHeight() - 1
 	
 		var posParedes = []
 		(0 .. ancho).forEach{ n => posParedes.add(new Position(n, 0)) } // bordeAbajo
@@ -22,41 +22,28 @@ object nivel1 {
 		posParedes.addAll([new Position(1,2), new Position(2,2),new Position(6,2), new Position(7,2)])
 		posParedes.addAll([new Position(1,1), new Position(2,1),new Position(6,1), new Position(7,1)])
 	
-		var paredes = posParedes.map{ p =>
-					val pared = new Pared()
-					p.drawElement(pared)
-					pared
-			}
-	
+		var paredes = posParedes.map{ p => self.dibujar(new Pared(p)) }	
 		
 //	LLEGADAS
 		var llegadas = [new Position(4, 4), new Position(4, 3),new Position(4, 2), new Position(4, 1)]
-			.map{ p =>
-					val llegada = new Llegada()
-					p.drawElement(llegada)
-					llegada
-			}
+			.map{ p => self.dibujar(new Llegada(p)) }
 
 //	CAJAS
 		var cajas = [new Position(2, 4), new Position(6, 4), new Position(4, 2), new Position(5, 2)]
-			.map{ p =>
-					val caja = 	new Caja(llegadas)
-					p.drawElement(caja)
-					caja
-			}
+			.map{ p => self.dibujar(new Caja(p, llegadas)) }
 			
 //	SOKOBAN
 
-		new Position(4, 3).drawElement(sokoban)
+		wgame.addVisual(sokoban)
 
 //	TECLADO
-		keys.onPress("up").do{ sokoban.irArriba() }
-		keys.onPress("down").do{ sokoban.irAbajo() }
-		keys.onPress("left").do{ sokoban.irIzquierda() }
-		keys.onPress("right").do{ sokoban.irDerecha() }
+		UP.onPressDo{ sokoban.irArriba() }
+		DOWN.onPressDo{ sokoban.irAbajo() }
+		LEFT.onPressDo{ sokoban.irIzquierda() }
+		RIGHT.onPressDo{ sokoban.irDerecha() }
 
-		keys.onPress("R").do{ this.restart() }
-		keys.onPress("ANY_KEY").do{ this.comprobarSiGano(cajas) }
+		R.onPressDo{ self.restart() }
+		ANY_KEY.onPressDo{ self.comprobarSiGano(cajas) }
 		
 		
 //	COLISIÓNES
@@ -65,11 +52,16 @@ object nivel1 {
 	
 	method restart() {
 		wgame.clear()
-		this.cargar()
+		self.cargar()
+	}
+	
+	method dibujar(dibujo) {
+		wgame.addVisual(dibujo)
+		return dibujo
 	}
 	
 	method comprobarSiGano(cajas) {
-		if (cajas.forAll{ c => c.estaBienPosicionada() }) {
+		if (cajas.all{ c => c.estaBienPosicionada() }) {
 			console.println("GANASTE!") 
 			//wgame.clear()
 		}

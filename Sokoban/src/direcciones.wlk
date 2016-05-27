@@ -1,12 +1,12 @@
 
 class Direccion {
 	method posicionDeAlLado(posicion) {
-		val nuevaPos = posicion.clone()
-		this.move(nuevaPos)
+		const nuevaPos = posicion.clone()
+		self.move(nuevaPos)
 		return nuevaPos
 	}
 	
-	method move(_) { /* Método abstracto */ }
+	method move(posicion)
 }
 
 object izquierda inherits Direccion { 

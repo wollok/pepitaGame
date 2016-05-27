@@ -2,7 +2,8 @@
 class Pared {
 	var posicion
 	
-	new () {
+	constructor(_posicion) {
+		posicion = _posicion
 	}
 	
 	method movete(direccion) {

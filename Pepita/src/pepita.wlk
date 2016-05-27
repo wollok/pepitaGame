@@ -10,7 +10,7 @@ object pepita {
 	
 	method volaHacia(unaCiudad) {
 		if (!(ciudad == unaCiudad))
-			energia = energia - this.energiaDeViajarHasta(unaCiudad)
+			energia = energia - self.energiaDeViajarHasta(unaCiudad)
 		ciudad = unaCiudad
 	}
 	

@@ -2,11 +2,9 @@
 class Llegada {
 	var posicion
 	
-	new (_posicion) {
+	constructor (_posicion) {
 		posicion = _posicion
 	}
-	
-	new () {}
 	
 	method movete(direccion) { /* No pasa naranja */ }
 	

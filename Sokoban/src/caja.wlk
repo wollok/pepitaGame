@@ -3,29 +3,30 @@ class Caja {
 	var posicion
 	var llegadas
 	
-	new(_llegadas) {
+	constructor(_posicion, _llegadas) {
 		llegadas = _llegadas
+		posicion = _posicion
 	}
 	
 
 	method movete(direccion) {
-		this.validarLugarLibre(direccion) 
+		self.validarLugarLibre(direccion) 
 		direccion.move(posicion)
 	}
 
 	method validarLugarLibre(direccion) {
-		val posAlLado = direccion.posicionDeAlLado(posicion) 
+		const posAlLado = direccion.posicionDeAlLado(posicion) 
 		var lugarLibre = wgame.getObjectsIn(posAlLado)
-			.forAll{ obj => obj.puedePisarte(this) } 
+			.all{ obj => obj.puedePisarte(self) } 
 		
-		if (! lugarLibre) 
+		if (!lugarLibre) 
 			throw new Exception("Algo traba la caja.")
 	}
 	
 	method puedePisarte(_) = false
 
 	method getImagen() {
-		if (this.estaBienPosicionada())
+		if (self.estaBienPosicionada())
 			return "caja_ok.png"
 		
 		return "caja.png"
@@ -34,7 +35,7 @@ class Caja {
 	method estaBienPosicionada() {
 		return llegadas
 			.map{ llegada => llegada.getPosicion() }
-			.contains(this.getPosicion())
+			.contains(self.getPosicion()) //TODO: Redefinier el (==) en Position!
 	}
 	
 	method getPosicion() = posicion

@@ -1,25 +1,26 @@
 import pepita.*
 import ciudades.*
 import comidas.*
+import wollok.game.*
 
 program PepitaGame {
 //	CONFIG	
 	wgame.setTitle("Pepita")
 	wgame.setHeight(4)
-	wgame.setWidth(11)
+	wgame.setWidth(10)
 	wgame.setGround("suelo.png")
 
 //	VISUALES
-	new Position(1, 1).drawElement(buenosAires)
-	new Position(8, 3).drawElement(villaGesell)
-	wgame.addVisualWithReference(pepita, ["energia"])
-	
+	wgame.addVisual(buenosAires)
+	wgame.addVisual(villaGesell)
+	wgame.addVisual(pepita)
+
 //	TECLADO
-	keys.onPress("A").do { pepita.come(alpiste) }
-	keys.onPress("m").do { pepita.come(manzana) }
+	A.onPressDo{ pepita.come(alpiste) }
+	M.onPressDo{ pepita.come(manzana) }
 	
-	keys.onPress("v").do { pepita.volaHacia(villaGesell) }
-	keys.onPress("b").do { pepita.volaHacia(buenosAires) }
+	V.onPressDo { pepita.volaHacia(villaGesell) }
+	B.onPressDo { pepita.volaHacia(buenosAires) }
 	
 //	START
 	wgame.start()

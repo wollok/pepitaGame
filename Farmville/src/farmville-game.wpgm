@@ -10,11 +10,11 @@ program FarmvilleGame {
 	wgame.setGround("ground.png")
 	
 //	VISUALES
- 	new Position(3, 3).drawCharacter(granjero) 		
+ 	wgame.addVisualCharacter(granjero)
 	
 //	ARBUSTOS
-	val ancho = wgame.getWidth() - 1
-	val largo = wgame.getHeight() - 1
+	const ancho = wgame.getWidth() - 1
+	const largo = wgame.getHeight() - 1
 
 	(1 .. ancho-1).forEach { n => new ArbustoAbajo(new Position(n, 0)) } // bordeAbajo
 	(1 .. ancho-1).forEach { n => new ArbustoArriba(new Position(n, largo)) } // bordeArriba 
