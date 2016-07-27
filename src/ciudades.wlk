@@ -1,21 +1,22 @@
-object buenosAires {
-	const posicion = new Position(1, 1)
-
+class Ciudad {
+	const imagen = "map_point.png"
+	const posicion 
+	const km
+	const nombre 
+	
+	constructor(_posicion, _nombre, _km) {
+		posicion = _posicion 
+		nombre = _nombre 
+		km = _km
+	}
+	
 	method distancia(ciudad) = (self.km() - ciudad.km()).abs() 
 	
-	method km() = 0
-	
-	method getImagen() = "caja.png"
+	method km() = km
+
 	method getPosicion() = posicion
 }
 
-object villaGesell {
-	const posicion = new Position(8, 3)
+object buenosAires inherits Ciudad(new Position(1, 1), "Buenos Aires", 0) { }
 
-	method distancia(ciudad) = (self.km() - ciudad.km()).abs() 
-	
-	method km() = 100
-
-	method getImagen() = "caja.png"
-	method getPosicion() = posicion
-}
+object villaGesell inherits Ciudad(new Position(8, 3), "Villa Gesell", 100) { }
