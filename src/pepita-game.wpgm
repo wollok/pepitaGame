@@ -5,15 +5,15 @@ import wollok.game.*
 
 program PepitaGame {
 //	CONFIG	
-	wgame.setTitle("Pepita")
-	wgame.setHeight(4)
-	wgame.setWidth(10)
-	wgame.setGround("suelo.png")
+	game.setTitle("Pepita")
+	game.setHeight(4)
+	game.setWidth(10)
+	game.setGround("suelo.png")
 
 //	VISUALES
-	wgame.addVisual(buenosAires)
-	wgame.addVisual(villaGesell)
-	wgame.addVisual(pepita)
+	game.addVisual(buenosAires)
+	game.addVisual(villaGesell)
+	game.addVisual(pepita)
 
 //	TECLADO
 	A.onPressDo{ pepita.come(alpiste) }
@@ -23,5 +23,5 @@ program PepitaGame {
 	B.onPressDo { pepita.volaHacia(buenosAires) }
 	
 //	START
-	wgame.start()
+	game.start()
 }
