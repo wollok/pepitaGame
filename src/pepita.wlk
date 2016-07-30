@@ -1,21 +1,13 @@
-import ciudades.*
-
 object pepita {
 	var energia = 100
-	var ciudad = buenosAires
-
-	method come(comida) {
-		energia = energia + comida.energia()
+	
+	method energia() = energia
+	
+	method volar(kms) {
+		energia -= kms + 10
 	}
 	
-	method volaHacia(unaCiudad) {
-		if (!(ciudad == unaCiudad))
-			energia = energia - self.energiaDeViajarHasta(unaCiudad)
-		ciudad = unaCiudad
+	method comer(gramos) {
+		energia += 4 * gramos
 	}
-	
-	method energiaDeViajarHasta(unaCiudad) = 15 + 5 * ciudad.distancia(unaCiudad)
-	
-	method getImagen() = "flying_bird.png"
-	method getPosicion() = ciudad.getPosicion()
 }
