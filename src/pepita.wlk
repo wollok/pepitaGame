@@ -1,54 +1,28 @@
 object pepita {
-	const imagen = "pepita.png"
-	var _ciudadActual = buenosAires
-	var energia = 100
-
-	method energia() = energia
-
-	method come(comida) {
-		energia = energia + comida.energia()
+	const imagen = "pepita.png" 
+	const posicion = game.at(2,0)
+	var energia = 50
+		
+	method energia() {
+		return energia
+	}
+	
+	method podesVolar() {
+		return energia > 50
+	}
+	
+	method come(gramos) {
+		energia = energia + 4 * gramos
 	}
 	
 	method vola(kms) {
-		energia = energia - 5 * kms
+		if (self.podesVolar()) {
+			energia = energia - 8 * kms
+			posicion.moveUp(1)			
+		}
 	}
 	
-	method volaHacia(unaCiudad) {
-		self.vola(_ciudadActual.distancia(unaCiudad))
-		_ciudadActual = unaCiudad
-	}	
-	
-	method posicion() = _ciudadActual.posicion()
-}
-
-
-object manzana {
-	method energia() = 50
-}
-
-object alpiste {
-	method energia() = 100
-}
-
-
-object buenosAires { 
-	const imagen = "ciudad.png"
-
-	method distancia(ciudad) {
-		return (self.km() - ciudad.km()).abs() 
+	method canta() {
+		game.say(self, "pri pri pri")	
 	}
-	 
-	method km() = 0
-	method posicion() = game.at(1, 1) 
-}
-
-object villaGesell { 
-	const imagen = "ciudad.png"
-
-	method distancia(ciudad) {
-		return (self.km() - ciudad.km()).abs() 
-	}
-	 
-	method km() = 15
-	method posicion() = game.at(3, 4) 
 }
