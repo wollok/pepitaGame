@@ -1,13 +1,11 @@
 object pepita {
 	var energia = 100
 	
-	method energia() = energia
-	
-	method volar(kms) {
-		energia -= kms + 10
+	method energia() {
+		return energia
 	}
 	
-	method comer(gramos) {
-		energia += 4 * gramos
+	method come(gramos) {
+		energia = energia + 4 * gramos
 	}
 }
