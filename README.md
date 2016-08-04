@@ -35,3 +35,4 @@ Probalos para ver qué hace cada uno! Después podés ver el código y tratar de
 Te sugerimos tener el juego al lado de la consola, para poder ir viendo los efectos de los mensajes que mandes!
 
 Que lo disfrutes!
+
