@@ -1,5 +1,4 @@
 object pepita {
-	const imagen = "pepita2.png" 
 	const posicion = game.at(2,0)
 	var energia = 50
 
@@ -7,8 +6,22 @@ object pepita {
 		return energia
 	}
 	
+	method imagen() {
+		if (energia < 150) 
+			return "pepita.png" 
+			
+		if (energia < 300) 
+			return "pepita1.png"
+			
+		return "pepita2.png"
+	} 
+	
 	method podesVolar() {
 		return energia > 50
+	}
+	
+	method volarMucho() {
+		energia = 0
 	}
 	
 	method come(gramos) {
@@ -24,11 +37,14 @@ object pepita {
 		if (self.podesVolar()) {
 			energia = energia - 8 * kms
 			posicion.moveUp(1)			
+		} else {
+			game.say(self, "No puedo volar")
+			game.say(self, "me falta energia. ")
+			game.say(self, "TIP: dame de comer")
 		}
 	}
 	
 	method canta() {
-		console.println("pri pri pri")
 		game.say(self, "pri pri pri")	
 	}
 }
