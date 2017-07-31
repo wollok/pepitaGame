@@ -28,10 +28,28 @@ pepita.vola(kms) //acción
 pepita.canta() //acción
 ```
 
-¡Probalos para ver qué hace cada uno! Después podés ver el código y tratar de entenderlo. Dicen que uno no sabe si entendió realmente algo hasta que lo pone a prueba, extendé el comportamiento de pepita y agregale nuevos métodos. Te ayudamos con algunas ideas:
+Fijate cómo cambia pepita a medida que come o vuela.
+
+Después podés ver el código y tratar de entenderlo. Dicen que uno no sabe si entendió realmente algo hasta que lo pone a prueba, extendé el comportamiento de pepita y agregale nuevos métodos. Te ayudamos con algunas ideas:
 - que pepita vuele, camine o salte hacia alguna otra dirección
 - que pepita no pueda volar si va a quedar con energía negativa
 - ...
+
+## ¡Una amiga para pepita!
+
+Como no es bueno que pepita esté sola, le trajimos una compañera: pepona, que 
+
+- vuela distinto (en diagonal)
+- y canta distinto
+
+No necesita comer (se las arregla sola). Probala incorporándola al juego
+
+```xtend
+game.addVisual(pepona)
+pepona.canta()
+pepona.vola(10)
+pepona.vola(10)
+```
 
 ¡Te sugerimos tener el juego al lado de la consola, para poder ir viendo los efectos de los mensajes que mandes!
 
