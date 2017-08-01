@@ -1,10 +1,10 @@
 # Pepita Game
-Clásico ejemplo de Pepita para aprender jugando con Wollok Game (Wollok v1.5.0)
+Clásico ejemplo de Pepita para aprender jugando con Wollok Game (desde Wollok v1.5.0 en adelante)
 
 ![pepita-toma5](https://cloud.githubusercontent.com/assets/4098184/17400394/f277b580-5a1d-11e6-9462-0a7731365938.gif)
 
 ## Cómo jugar
-Como podemos ver, nuestra carpeta `src` solo contiene un archivo `pepita.wlk` con la definición de nunestro objeto _pepita_.
+Como podemos ver, nuestra carpeta `src` solo contiene un archivo `pepita.wlk` con la definición de nuestro objeto _pepita_.
 
 Podemos correr el archivo desde consola: `Botón derecho -> Run as -> Run with REPL` y ya podemos jugar con pepita mandándole mensajes.
 
