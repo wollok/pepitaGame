@@ -9,13 +9,14 @@ object pepita {
 	}
 	
 	method volaHacia(unaCiudad) {
-		if (!(ciudad == unaCiudad))
-			energia = energia - self.energiaDeViajarHasta(unaCiudad)
+		if (!(ciudad == unaCiudad)) {
+			energia = energia - self.energiaParaViajarHasta(unaCiudad)
+		}
 		ciudad = unaCiudad
 	}
 	
-	method energiaDeViajarHasta(unaCiudad) = 15 + 5 * ciudad.distancia(unaCiudad)
+	method energiaParaViajarHasta(unaCiudad) = 15 + 5 * mapa.distancia(ciudad, unaCiudad)
 	
-	method getImagen() = "flying_bird.png"
-	method getPosicion() = ciudad.getPosicion()
+	method imagen() = "flying_bird.png"
+	method posicion() = ciudad.posicion()
 }

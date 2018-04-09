@@ -5,10 +5,10 @@ import wollok.game.*
 
 program PepitaGame {
 //	CONFIG	
-	game.setTitle("Pepita")
-	game.setHeight(4)
-	game.setWidth(10)
-	game.setGround("suelo.png")
+	game.title("Pepita")
+	game.height(4)
+	game.width(10)
+	game.ground("suelo.png")
 
 //	VISUALES
 	game.addVisual(buenosAires)
