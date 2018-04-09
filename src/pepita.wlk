@@ -9,10 +9,10 @@ object pepita {
 	}
 	
 	method volaHacia(unaCiudad) {
-		if (!(ciudad == unaCiudad)) {
+		if (ciudad != unaCiudad) {
 			energia = energia - self.energiaParaViajarHasta(unaCiudad)
+			ciudad = unaCiudad
 		}
-		ciudad = unaCiudad
 	}
 	
 	method energiaParaViajarHasta(unaCiudad) = 15 + 5 * mapa.distancia(ciudad, unaCiudad)
