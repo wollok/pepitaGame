@@ -1,57 +1,24 @@
 # Pepita Game
-Clásico ejemplo de Pepita para aprender jugando con Wollok Game (desde Wollok v1.5.0 en adelante)
+Clásico ejemplo de Pepita para jugar con Wollok Game (Wollok v1.6.5)
 
-![pepita-toma5](https://cloud.githubusercontent.com/assets/4098184/17400394/f277b580-5a1d-11e6-9462-0a7731365938.gif)
+## Cómo ejecutarlo
+Para ejecutar el juego solo hace falta localizar el archivo `pepitaGame.wpgm` y correrlo (Botón Derecho -> Run as -> Wollok program). En él se encuentra el programa _PepitaGame_ que configura y al final inicia el proceso que levanta Wollok Game.
 
-## Cómo jugar
-Como podemos ver, nuestra carpeta `src` solo contiene un archivo `pepita.wlk` con la definición de nuestro objeto _pepita_.
-
-Podemos correr el archivo desde consola: `Botón derecho -> Run as -> Run with REPL` y ya podemos jugar con pepita mandándole mensajes.
-
-## ¿Y el juego?
-Jugar directamente con la consola puede ser divertido, pero también es bastante abstracto y hasta a veces confuso. Es por eso que en esta etapa te proponemos levantar Wollok Game y agregar a pepita para poder ver qué hace más de cerca.
-Para eso hay que usar el objeto **game** que ya viene con Wollok:
+## Controles
+Como podemos chusmear en el programa _PepitaGame_, allí se configuran acciones que se ejucan al precionar alguna tecla en particular:
 ```XTend
-game.start() // Levanta un proceso con la pantalla
-game.addVisual(pepita) // Agrega un objeto para mostrarlo por pantalla
+//	TECLADO
+	A.onPressDo{ pepita.come(alpiste) }
+	M.onPressDo{ pepita.come(manzana) }
+	
+	V.onPressDo{ pepita.volaHacia(villaGesell) }
+	B.onPressDo{ pepita.volaHacia(buenosAires) }
 ```
-¡Ahora ya deberías poder ver a pepita!
+Esto significa que:
+- Al presionar la tecla **A**, pepita **come alpiste**.
+- Al presionar la tecla **M**, pepita **come manzana**.
+- Al presionar la tecla **V**, pepita **viaja hasta Villa Gesell**.
+- Al presionar la tecla **B**, pepita **viaja hasta Bunos Aires**.
 
-## Qué mensajes entiende pepita
-Dentro del archivo se encuentra declarado nuestro objeto pepita y dentro de él (o ella) los métodos que tiene. Por ahora pepita entiende los siguientes mensajes:
-
-```xtend
-pepita.energia() //consulta
-pepita.podesVolar() //consulta
-pepita.come(gramos) //acción
-pepita.vola(kms) //acción
-pepita.canta() //acción
-```
-
-Fijate cómo cambia pepita a medida que come o vuela.
-
-Después podés ver el código y tratar de entenderlo. Dicen que uno no sabe si entendió realmente algo hasta que lo pone a prueba, extendé el comportamiento de pepita y agregale nuevos métodos. Te ayudamos con algunas ideas:
-- que pepita vuele, camine o salte hacia alguna otra dirección
-- que pepita no pueda volar si va a quedar con energía negativa
-- ...
-
-## ¡Una amiga para pepita!
-
-Como no es bueno que pepita esté sola, le trajimos una compañera: pepona, que 
-
-- vuela distinto (en diagonal)
-- y canta distinto
-
-No necesita comer (se las arregla sola). Probala incorporándola al juego
-
-```xtend
-game.addVisual(pepona)
-pepona.canta()
-pepona.vola(10)
-pepona.vola(10)
-```
-
-¡Te sugerimos tener el juego al lado de la consola, para poder ir viendo los efectos de los mensajes que mandes!
-
-¡Que lo disfrutes!
+Que lo disfrutes!
 

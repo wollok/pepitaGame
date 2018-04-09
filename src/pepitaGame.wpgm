@@ -1,0 +1,27 @@
+import pepita.*
+import ciudades.*
+import comidas.*
+import wollok.game.*
+
+program PepitaGame {
+//	CONFIG	
+	game.title("Pepita")
+	game.height(4)
+	game.width(10)
+	game.ground("suelo.png")
+
+//	VISUALES
+	game.addVisual(buenosAires)
+	game.addVisual(villaGesell)
+	game.addVisual(pepita)
+
+//	TECLADO
+	A.onPressDo{ pepita.come(alpiste) }
+	M.onPressDo{ pepita.come(manzana) }
+	
+	V.onPressDo { pepita.volaHacia(villaGesell) }
+	B.onPressDo { pepita.volaHacia(buenosAires) }
+	
+//	START
+	game.start()
+}
