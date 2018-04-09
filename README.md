@@ -1,8 +1,8 @@
 # Pepita Game
-Clásico ejemplo de Pepita para jugar con Wollok Game (Wollok v1.5.0)
+Clásico ejemplo de Pepita para jugar con Wollok Game (Wollok v1.6.5)
 
 ## Cómo ejecutarlo
-Para ejecutar el juego solo hace falta localizar el archivo `pepita-game.wpgm` y correrlo (Botón Derecho -> Run as -> Wollok program). En él se encuentra el programa _PepitaGame_ que configura y al final inicia el proceso que levanta Wollok Game.
+Para ejecutar el juego solo hace falta localizar el archivo `pepitaGame.wpgm` y correrlo (Botón Derecho -> Run as -> Wollok program). En él se encuentra el programa _PepitaGame_ que configura y al final inicia el proceso que levanta Wollok Game.
 
 ## Controles
 Como podemos chusmear en el programa _PepitaGame_, allí se configuran acciones que se ejucan al precionar alguna tecla en particular:
@@ -21,3 +21,4 @@ Esto significa que:
 - Al presionar la tecla **B**, pepita **viaja hasta Bunos Aires**.
 
 Que lo disfrutes!
+

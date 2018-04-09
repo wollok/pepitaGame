@@ -1,4 +1,3 @@
-
 object manzana {
 	method energia() = 50
 }
@@ -6,4 +5,3 @@ object manzana {
 object alpiste {
 	method energia() = 1000
 }
-
