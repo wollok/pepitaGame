@@ -1,8 +1,9 @@
 import ciudades.*
 
 object pepita {
-	var energia = 100
-	var ciudad = buenosAires
+	var property energia = 100
+	var property ciudad = ciudades.buenosAires() 
+	var property posicion = game.at(3,3)
 
 	method come(comida) {
 		energia = energia + comida.energia()
@@ -10,13 +11,17 @@ object pepita {
 	
 	method volaHacia(unaCiudad) {
 		if (ciudad != unaCiudad) {
-			energia = energia - self.energiaParaViajarHasta(unaCiudad)
+			self.move(unaCiudad.posicion())
 			ciudad = unaCiudad
 		}
 	}
-	
-	method energiaParaViajarHasta(unaCiudad) = 15 + 5 * mapa.distancia(ciudad, unaCiudad)
-	
+
+	method energiaParaVolar(distancia) = 15 + 5 * distancia
+
+	method move(nuevaPosicion) {
+		energia -= self.energiaParaVolar(posicion.distance(nuevaPosicion))
+		self.posicion(nuevaPosicion)
+	}	
+
 	method imagen() = "pepita.png"
-	method posicion() = ciudad.posicion()
 }

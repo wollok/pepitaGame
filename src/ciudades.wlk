@@ -1,17 +1,21 @@
-object buenosAires {
-	method imagen() = "ciudad.png"
-	method nombre() = "Buenos Aires"
-	method posicion() = game.at(1, 1)
-}
-
-object villaGesell {
-	method imagen() = "ciudad.png"
-	method nombre() = "Villa Gesell"
-	method posicion() = game.at(8, 3)
-}
-
-object mapa {
-	method distancia(unaCiudad, otraCiudad) {
-		return unaCiudad.posicion().distance(otraCiudad.posicion())
+class Ciudad {
+	const property imagen = "map_point.png"
+	const property nombre = null
+	const property posicion = null
+	
+	method llego(alguien) {
+		alguien.ciudad(self)
 	}
+}
+
+object ciudades {
+	const property villaGesell = new Ciudad(
+		nombre = "Villa Gesell",
+		posicion = game.at(8,3)
+	)
+
+	const property buenosAires = new Ciudad(
+		nombre = "Buenos Aires",
+		posicion = game.at(1,1)
+	)
 }
