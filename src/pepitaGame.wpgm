@@ -4,23 +4,33 @@ import comidas.*
 import wollok.game.*
 
 program PepitaGame {
+	
 //	CONFIG	
 	game.title("Pepita")
-	game.height(4)
+	game.height(10)
 	game.width(10)
 	game.ground("suelo.png")
 
 //	VISUALES
-	game.addVisual(buenosAires)
-	game.addVisual(villaGesell)
+	game.addVisualIn(alpiste, game.at(5,5))
+	game.addVisualIn(manzana, game.at(1,1))
+	game.addVisual(ciudades.buenosAires())
+	game.addVisual(ciudades.villaGesell())
 	game.addVisual(pepita)
 
 //	TECLADO
-	A.onPressDo{ pepita.come(alpiste) }
-	M.onPressDo{ pepita.come(manzana) }
+	V.onPressDo { 
+		pepita.volaHacia(ciudades.villaGesell())
+		game.say(pepita, pepita.ciudad().nombre())
+	}
+	B.onPressDo { pepita.volaHacia(ciudades.buenosAires()) }
 	
-	V.onPressDo { pepita.volaHacia(villaGesell) }
-	B.onPressDo { pepita.volaHacia(buenosAires) }
+	UP.onPressDo { pepita.move(pepita.posicion().up(1)) }
+	DOWN.onPressDo { pepita.move(pepita.posicion().down(1)) }
+	LEFT.onPressDo { pepita.move(pepita.posicion().left(1)) }
+	RIGHT.onPressDo { pepita.move(pepita.posicion().right(1)) }
+
+	game.whenCollideDo(pepita, { algo => algo.llego(pepita) })	
 	
 //	START
 	game.start()
