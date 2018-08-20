@@ -19,16 +19,16 @@ program PepitaGame {
 	game.addVisual(pepita)
 
 //	TECLADO
-	V.onPressDo { 
+	keyboard.v().onPressDo { 
 		pepita.volaHacia(ciudades.villaGesell())
 		game.say(pepita, pepita.ciudad().nombre())
 	}
-	B.onPressDo { pepita.volaHacia(ciudades.buenosAires()) }
+	keyboard.b().onPressDo { pepita.volaHacia(ciudades.buenosAires()) }
 	
-	UP.onPressDo { pepita.move(pepita.posicion().up(1)) }
-	DOWN.onPressDo { pepita.move(pepita.posicion().down(1)) }
-	LEFT.onPressDo { pepita.move(pepita.posicion().left(1)) }
-	RIGHT.onPressDo { pepita.move(pepita.posicion().right(1)) }
+	keyboard.up().onPressDo { pepita.move(pepita.posicion().up(1)) }
+	keyboard.down().onPressDo { pepita.move(pepita.posicion().down(1)) }
+	keyboard.left().onPressDo { pepita.move(pepita.posicion().left(1)) }
+	keyboard.right().onPressDo { pepita.move(pepita.posicion().right(1)) }
 
 	game.whenCollideDo(pepita, { algo => algo.llego(pepita) })	
 	

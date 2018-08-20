@@ -1,5 +1,5 @@
 class Ciudad {
-	const property imagen = "map_point.png"
+	const property imagen = "ciudad.png"
 	const property nombre = null
 	const property posicion = null
 	
