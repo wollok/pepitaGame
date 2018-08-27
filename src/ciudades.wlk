@@ -1,10 +1,13 @@
 class Ciudad {
-	const property imagen = "map_point.png"
+	const property imagen = "ciudad.png"
 	const property nombre = null
 	const property posicion = null
 	
 	method llego(alguien) {
-		alguien.ciudad(self)
+		if (alguien.ciudad() != self) {
+			alguien.ciudad(self)
+			alguien.say("Llegué a " + nombre)
+		}
 	}
 }
 

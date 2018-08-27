@@ -3,7 +3,9 @@ import ciudades.*
 object pepita {
 	var property energia = 100
 	var property ciudad = ciudades.buenosAires() 
+
 	var property posicion = game.at(3,3)
+	method imagen() = "pepita.png"
 
 	method come(comida) {
 		energia = energia + comida.energia()
@@ -23,5 +25,4 @@ object pepita {
 		self.posicion(nuevaPosicion)
 	}	
 
-	method imagen() = "pepita.png"
 }
