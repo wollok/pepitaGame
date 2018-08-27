@@ -1,24 +1,11 @@
-class Ciudad {
-	const property imagen = "ciudad.png"
-	const property nombre = null
-	const property posicion = null
-	
-	method llego(alguien) {
-		if (alguien.ciudad() != self) {
-			alguien.ciudad(self)
-			alguien.say("Llegué a " + nombre)
-		}
-	}
+object villaGesell {
+	method imagen() = "ciudad.png"
+	method nombre() = "Villa Gesell"
+	method posicion() = game.at(8,3)
 }
 
-object ciudades {
-	const property villaGesell = new Ciudad(
-		nombre = "Villa Gesell",
-		posicion = game.at(8,3)
-	)
-
-	const property buenosAires = new Ciudad(
-		nombre = "Buenos Aires",
-		posicion = game.at(1,1)
-	)
+object buenosAires {
+	method imagen() = "ciudad.png"
+	method nombre() = "Buenos Aires"
+	method posicion() = game.at(1,1)
 }

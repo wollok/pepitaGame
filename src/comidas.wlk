@@ -1,16 +1,9 @@
-class Comestible {
-	method llego(alguien) {
-		alguien.come(self)
-		game.removeVisual(self)
-	}	
-}
-
-object manzana inherits Comestible {
+object manzana {
 	const property imagen = "manzana.png"
-	method energia() = 50
+	method energia() = 80
 }
 
-object alpiste inherits Comestible {
+object alpiste {
 	const property imagen = "alpiste.png"
-	method energia() = 1000
+	method energia() = 5
 }

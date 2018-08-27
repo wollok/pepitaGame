@@ -14,21 +14,14 @@ program PepitaGame {
 //	VISUALES
 	game.addVisualIn(alpiste, game.at(5,5))
 	game.addVisualIn(manzana, game.at(5,1))
-	game.addVisual(ciudades.buenosAires())
-	game.addVisual(ciudades.villaGesell())
-	game.addVisual(pepita)
+	game.addVisual(buenosAires)
+	game.addVisual(villaGesell)
+	game.addVisualCharacter(pepita)
 
 //	TECLADO
-	keyboard.v().onPressDo { pepita.volaHacia(ciudades.villaGesell()) }
-	keyboard.b().onPressDo { pepita.volaHacia(ciudades.buenosAires()) }
-	
-	keyboard.up().onPressDo { pepita.move(pepita.posicion().up(1)) }
-	keyboard.down().onPressDo { pepita.move(pepita.posicion().down(1)) }
-	keyboard.left().onPressDo { pepita.move(pepita.posicion().left(1)) }
-	keyboard.right().onPressDo { pepita.move(pepita.posicion().right(1)) }
-
-	game.whenCollideDo(pepita, { algo => algo.llego(pepita) })	
-	
+	keyboard.v().onPressDo { pepita.volaHacia(villaGesell) }
+	keyboard.b().onPressDo { pepita.volaHacia(buenosAires) }
+		
 //	START
 	game.start()
 }
