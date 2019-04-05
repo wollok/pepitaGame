@@ -16,11 +16,18 @@ program PepitaGame {
 	game.addVisualIn(manzana, game.at(5,1))
 	game.addVisual(buenosAires)
 	game.addVisual(villaGesell)
-	game.addVisualCharacter(pepita)
+	game.addVisual(pepita)
 
 //	TECLADO
+	keyboard.h().onPressDo { game.say(pepita, "Hola chiques!") }
+
 	keyboard.v().onPressDo { pepita.volaHacia(villaGesell) }
 	keyboard.b().onPressDo { pepita.volaHacia(buenosAires) }
+
+	keyboard.up().onPressDo { pepita.move(pepita.position().up(1)) }
+	keyboard.down().onPressDo { pepita.move(pepita.position().down(1)) }
+	keyboard.left().onPressDo { pepita.move(pepita.position().left(1)) }
+	keyboard.right().onPressDo { pepita.move(pepita.position().right(1)) }
 		
 //	START
 	game.start()

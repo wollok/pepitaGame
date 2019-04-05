@@ -1,11 +1,15 @@
+import wollok.game.*
+
 object villaGesell {
-	method imagen() = "ciudad.png"
+	method image() = "ciudad.png"
+	method position() = game.at(8,3)
+	
 	method nombre() = "Villa Gesell"
-	method posicion() = game.at(8,3)
 }
 
 object buenosAires {
-	method imagen() = "ciudad.png"
+	method image() = "ciudad.png"
+	method position() = game.at(1,1)
+	
 	method nombre() = "Buenos Aires"
-	method posicion() = game.at(1,1)
 }
