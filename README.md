@@ -26,5 +26,31 @@ Algunos tips:
 - Los números entienden los mensajes #roundUp() y truncate(n), que permiten obtener un número entero a partir de un número decimal.
 - El objeto game entiende el mensaje #at(x,y) que devuelve una posición.
 
-Más información sobre estos mensajes se puede encontrar en el sitio de wollok o en la documentación dentro del IDE (mediante ctrl+shift+F3).
+Más información sobre estos mensajes se puede encontrar en [el sitio de wollok](https://www.wollok.org/documentacion/wollokdoc/) o en la documentación dentro del IDE (mediante ctrl+shift+F3).
 
+
+## Tercera parte
+### Muchas comidas
+En esta nueva etapa, tanto Roque como Pepita se moverán con el teclado:
+- Roque: se mueve con las flechas.
+- Pepita: se mueve con ASDW.
+
+Además, Roque ya no levanta comida para Pepita, ahora ella puede ir a buscarla por sí misma. Su tarea ahora será dejar comida en el tablero para que Pepita pueda comerla. Entonces queremos que:
+- Cuando Pepita choca con una comida, se la come.
+- Roque deje una comida en la posición en la que está:
+  - Si se presiona la tecla L: deja un montoncito de alpiste.
+  - Si se presiona la tecla M: deja una manzana.
+- El juego debe comenzar con un montoncito de alpiste y una manzana en el tablero, como lo hacía anteriormente.
+
+**ATENCIÓN** ahora puede haber muchas manzanas y montoncitos de alpistes en el tablero.
+
+- También queremos que cuando Pepita se encuentre con Roque se saluden mutuamente.
+
+### Alpistes variables
+Roque nos contó un poco mejor cómo arma los mentoncitos de alpistes que va dejando por el camino. 
+
+Él va agarrando granitos de alpiste a medida que camina (1 grano por cada paso que dá). Así que cuando deja un montoncito, deja todos los granos que estuvo recolectando durante el camino.
+
+> Por ejemplo, si camina 5 pasos y deja un montoncito de alpiste, éste tiene 5 granos. Luego da 2 pasos más y deja otro montoncito, este nuevo tendría 2 granos de alpiste.
+
+- Queremos agregar este requerimiento al juego, teniendo en cuenta que ahora los montoncitos de alpiste dan `0,5 * cantidad de granos` de energía.
