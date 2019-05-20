@@ -1,4 +1,7 @@
 # Pepita Game
+ 
+[![Build Status](https://travis-ci.org/wollok/pepitaGame.svg?branch=master)](https://travis-ci.org/wollok/pepitaGame)
+
 ## Primera parte
 ### Darle de comer a pepita
 - Al presionar la letra m, queremos que pepita se mueva hasta donde está la manzana y se la coma. La manzana debe desaparecer del tablero.
