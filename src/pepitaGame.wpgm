@@ -22,10 +22,10 @@ program PepitaGame {
 	keyboard.v().onPressDo { pepita.volaHacia(ciudades.villaGesell()) }
 	keyboard.b().onPressDo { pepita.volaHacia(ciudades.buenosAires()) }
 	
-	keyboard.up().onPressDo { pepita.move(pepita.posicion().up(1)) }
-	keyboard.down().onPressDo { pepita.move(pepita.posicion().down(1)) }
-	keyboard.left().onPressDo { pepita.move(pepita.posicion().left(1)) }
-	keyboard.right().onPressDo { pepita.move(pepita.posicion().right(1)) }
+	keyboard.up().onPressDo { pepita.move(pepita.position().up(1)) }
+	keyboard.down().onPressDo { pepita.move(pepita.position().down(1)) }
+	keyboard.left().onPressDo { pepita.move(pepita.position().left(1)) }
+	keyboard.right().onPressDo { pepita.move(pepita.position().right(1)) }
 
 	game.whenCollideDo(pepita, { algo => algo.llego(pepita) })	
 	

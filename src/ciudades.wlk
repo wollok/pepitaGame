@@ -1,12 +1,14 @@
+import wollok.game.*
+
 class Ciudad {
-	const property imagen = "ciudad.png"
+	const property image = "ciudad.png"
 	const property nombre = null
-	const property posicion = null
+	const property position = null
 	
 	method llego(alguien) {
 		if (alguien.ciudad() != self) {
 			alguien.ciudad(self)
-			alguien.say("Llegué a " + nombre)
+			game.say(alguien,"Llegué a " + nombre)
 		}
 	}
 }
@@ -14,11 +16,11 @@ class Ciudad {
 object ciudades {
 	const property villaGesell = new Ciudad(
 		nombre = "Villa Gesell",
-		posicion = game.at(8,3)
+		position = game.at(8,3)
 	)
 
 	const property buenosAires = new Ciudad(
 		nombre = "Buenos Aires",
-		posicion = game.at(1,1)
+		position = game.at(1,1)
 	)
 }

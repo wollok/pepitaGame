@@ -1,3 +1,5 @@
+import wollok.game.*
+
 class Comestible {
 	method llego(alguien) {
 		alguien.come(self)
@@ -6,11 +8,11 @@ class Comestible {
 }
 
 object manzana inherits Comestible {
-	const property imagen = "manzana.png"
+	const property image = "manzana.png"
 	method energia() = 50
 }
 
 object alpiste inherits Comestible {
-	const property imagen = "alpiste.png"
+	const property image = "alpiste.png"
 	method energia() = 1000
 }
