@@ -1,6 +1,6 @@
 # Pepita Game
  
-[![Build Status](https://travis-ci.org/wollok/pepitaGame.svg?branch=master)](https://travis-ci.org/wollok/pepitaGame)
+[![Build Status](https://github.com/wollok/pepitaGame/actions/workflows/ci.yml/badge.svg)](https://github.com/wollok/pepitaGame/actions/workflows/ci.yml)
 
 ## Primera parte
 ### Darle de comer a pepita
